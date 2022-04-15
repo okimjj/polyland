@@ -48,35 +48,35 @@ int main () {
 	do {
 	
 	
-		printf("ê¶Œì¢…ì„ ì„ íƒí•˜ì„¸ìš”.\n1. ì£¼ê°„ê¶Œ\n2. ì•¼ê°„ê¶Œ\n");
-		printf("ì„ íƒ: ");
+		printf("±ÇÁ¾À» ¼±ÅÃÇÏ¼¼¿ä.\n1. ÁÖ°£±Ç\n2. ¾ß°£±Ç\n");
+		printf("¼±ÅÃ: ");
 		scanf("%d", &dayOrNight);
 		
 		printf("****************************************\n");
-		printf("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ 7ë²ˆì§¸ ìë¦¬ê¹Œì§€ ì…ë ¥í•˜ì„¸ìš”\n");
-		printf("ì£¼ë¯¼ë²ˆí˜¸: ");
+		printf("ÁÖ¹Îµî·Ï¹øÈ£ 7¹øÂ° ÀÚ¸®±îÁö ÀÔ·ÂÇÏ¼¼¿ä\n");
+		printf("ÁÖ¹Î¹øÈ£: ");
 		scanf("%s", &jumin);
 		
 		do {
 		printf("****************************************\n");
-		printf("ëª‡ ì¥ì„ ì£¼ë¬¸í•˜ì‹œë‚˜ìš”? (10ì¥ ì´ˆê³¼ ì‹œ ë¬´íš¨)\n"); 
-		printf("ìˆ˜ëŸ‰: ");
+		printf("¸î ÀåÀ» ÁÖ¹®ÇÏ½Ã³ª¿ä? (10Àå ÃÊ°ú ½Ã ¹«È¿)\n"); 
+		printf("¼ö·®: ");
 		scanf("%d", &numberOfTicket);
 		} while (numberOfTicket > 10);
 		
 		printf("****************************************\n");
-		printf("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.\n");
-		printf("1. ì¥ì• ì¸\n2. êµ­ê°€ìœ ê³µì\n3. ì„ì‚°ë¶€\n4. íœ´ê°€ì¥ë³‘\n5. ë‹¤ë‘¥ì´\n6. ì—†ìŒ\n");
-		printf("ì„ íƒ: ");
+		printf("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.\n");
+		printf("1. Àå¾ÖÀÎ\n2. ±¹°¡À¯°øÀÚ\n3. ÀÓ»êºÎ\n4. ÈŞ°¡Àåº´\n5. ´ÙµÕÀÌ\n6. ¾øÀ½\n");
+		printf("¼±ÅÃ: ");
 		scanf("%d", &discountCondition);
 		
-			//ì£¼ë¯¼ë²ˆí˜¸ 7ë²ˆì§¸ ìë¦¬ê°€ 1ì´ê±°ë‚˜ 2ë¼ë©´ 1900ë…„ëŒ€ ìƒ, 3ì´ë‚˜ 4ë¼ë©´ 2000ë…„ëŒ€ ìƒ
+			//ÁÖ¹Î¹øÈ£ 7¹øÂ° ÀÚ¸®°¡ 1ÀÌ°Å³ª 2¶ó¸é 1900³â´ë »ı, 3ÀÌ³ª 4¶ó¸é 2000³â´ë »ı
 		if ((jumin[6] - '0') == 1 || (jumin[6] - '0') == 2) {
 			birthYear = 1900 + ((jumin[0] - '0') * 10 + (jumin[1] - '0'));
 		} else if ((jumin[6] - '0') == 3 || (jumin[6] - '0') == 4) {
 			birthYear = 2000 + ((jumin[0] - '0') * 10 + (jumin[1] - '0'));
 		}
-		//ìƒì›” = ì£¼ë¯¼ë²ˆí˜¸ 3,4ë²ˆì§¸ ìë¦¬
+		//»ı¿ù = ÁÖ¹Î¹øÈ£ 3,4¹øÂ° ÀÚ¸®
 		birthMonth = ((jumin[2] - '0') * 10) + (jumin[3] - '0');
 		birthDate = ((jumin[4] - '0') * 10) + (jumin[5] - '0');
 		
@@ -130,9 +130,9 @@ int main () {
 		}
 		
 		printf("****************************************\n");
-		printf("ê°€ê²©ì€ %dì›ì…ë‹ˆë‹¤. ê°ì‚¬í•©ë‹ˆë‹¤.\n", price);
-		printf("ê³„ì† ë°œê¶Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?[1. ì˜ˆ / 2. ì•„ë‹ˆì˜¤]\n");
-		printf("ì„ íƒ: ");
+		printf("°¡°İÀº %d¿øÀÔ´Ï´Ù. °¨»çÇÕ´Ï´Ù.\n", price);
+		printf("°è¼Ó ¹ß±ÇÇÏ½Ã°Ú½À´Ï±î?[1. ¿¹ / 2. ¾Æ´Ï¿À]\n");
+		printf("¼±ÅÃ: ");
 		scanf ("%d", &repeat);
 		printf("\n**************************************\n");
 		
@@ -141,20 +141,19 @@ int main () {
 		
 		orderList[roundCount][SAVE_TICKET_TYPE] = dayOrNight;
 		orderList[roundCount][SAVE_AGE_GROUP] = ageGroup;
-		orderList[roundCount][SAVE_AGE_TYPE] = dayOrNight;
-		orderList[roundCount][SAVE_TICKET_COUNT] = dayOrNight;
-		orderList[roundCount][SAVE_PRICE_PER_PURCHASE] = dayOrNight;
-		orderList[roundCount][SAVE_DISCOUNT] = dayOrNight;
-		orderList[roundCount][SAVE_TOTAL] = dayOrNight;
+		orderList[roundCount][SAVE_TICKET_COUNT] = numberOfTicket;
+		orderList[roundCount][SAVE_PRICE_PER_PURCHASE] = price;
+		orderList[roundCount][SAVE_DISCOUNT] = discountCondition;
+		orderList[roundCount][SAVE_TOTAL] = priceFinal;
 		
 	} while (repeat == 1);
 	
-		printf("í‹°ì¼“ ë°œê¶Œì„ ì¢…ë£Œí•©ë‹ˆë‹¤. ê°ì‚¬í•©ë‹ˆë‹¤.\n");
-		printf("\n*************í´ë¦¬ëœë“œ**************\n");
+		printf("Æ¼ÄÏ ¹ß±ÇÀ» Á¾·áÇÕ´Ï´Ù. °¨»çÇÕ´Ï´Ù.\n");
+		printf("\n*************Æú¸®·£µå**************\n");
 		for (int index = 0; index < roundCount; index++) {
-			if () //ì—¬ê¸°ë¶€í„° ë‹¤ì‹œ 
+			if () //¿©±âºÎÅÍ ´Ù½Ã 
 		}
-		printf("ì´ ê²°ì œì•¡ì€ %dì›ì…ë‹ˆë‹¤.", priceFinal);
+		printf("ÃÑ °áÁ¦¾×Àº %d¿øÀÔ´Ï´Ù.", priceFinal);
 		
 	return 0;
 }
