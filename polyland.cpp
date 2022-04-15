@@ -152,7 +152,7 @@ int main () {
 		printf("티켓 발권을 종료합니다. 감사합니다.\n");
 		printf("\n*************폴리랜드**************\n");
 		for (int index = 0; index < roundCount; index++) {
-			if ()
+			if () //여기부터 다시 
 		}
 		printf("총 결제액은 %d원입니다.", priceFinal);
 		
