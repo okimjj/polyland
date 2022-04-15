@@ -6,12 +6,12 @@ int main () {
 	const int TODAY = 14;
 	
 	const int BABY = 15000;
-	const int KID_DAY = 47000;
-	const int KID_NIGHT = 36000;
-	const int YOUNG_DAY = 54000;
-	const int YOUNG_NIGHT = 43000;
-	const int ADULT_DAY = 62000; 
-	const int ADULT_NIGHT = 50000; 
+	const int KID_DAY = 46000;
+	const int KID_NIGHT = 35000;
+	const int YOUNG_DAY = 52000;
+	const int YOUNG_NIGHT = 41000;
+	const int ADULT_DAY = 59000; 
+	const int ADULT_NIGHT = 47000; 
 	
 	const float DC_DIS_NAT_PREG = 0.5;
 	const float DC_SOLDIER = 0.49;
@@ -32,49 +32,49 @@ int main () {
 	do {
 	
 	
-		printf("±ÇÁ¾À» ¼±ÅÃÇÏ¼¼¿ä.\n1. ÁÖ°£±Ç\n2. ¾ß°£±Ç\n");
-		printf("¹øÈ£ ÀÔ·Â: ");
+		printf("ê¶Œì¢…ì„ ì„ íƒí•˜ì„¸ìš”.\n1. ì£¼ê°„ê¶Œ\n2. ì•¼ê°„ê¶Œ\n");
+		printf("ì„ íƒ: ");
 		scanf("%d", &dayOrNight);
 		
 		printf("****************************************\n");
-		printf("ÁÖ¹Îµî·Ï¹øÈ£ 7¹øÂ° ÀÚ¸®±îÁö ÀÔ·ÂÇÏ¼¼¿ä\n");
-		printf("ÁÖ¹Î¹øÈ£: ");
+		printf("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ 7ë²ˆì§¸ ìë¦¬ê¹Œì§€ ì…ë ¥í•˜ì„¸ìš”\n");
+		printf("ì£¼ë¯¼ë²ˆí˜¸: ");
 		scanf("%s", &jumin);
 		
 		do {
 		printf("****************************************\n");
-		printf("¸î ÀåÀ» ÁÖ¹®ÇÏ½Ã³ª¿ä? (10Àå ÃÊ°ú ½Ã ¹«È¿)\n"); 
-		printf("Àå ¼ö: ");
+		printf("ëª‡ ì¥ì„ ì£¼ë¬¸í•˜ì‹œë‚˜ìš”? (10ì¥ ì´ˆê³¼ ì‹œ ë¬´íš¨)\n"); 
+		printf("ìˆ˜ëŸ‰: ");
 		scanf("%d", &numberOfTicket);
 		} while (numberOfTicket > 10);
 		
 		printf("****************************************\n");
-		printf("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.\n");
-		printf("1. Àå¾ÖÀÎ\n2. ±¹°¡À¯°øÀÚ\n3. ÀÓ»êºÎ\n4. ÈŞ°¡Àåº´\n5. ´ÙµÕÀÌ\n6. ¾øÀ½\n");
-		printf("¹øÈ£ ÀÔ·Â: ");
+		printf("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.\n");
+		printf("1. ì¥ì• ì¸\n2. êµ­ê°€ìœ ê³µì\n3. ì„ì‚°ë¶€\n4. íœ´ê°€ì¥ë³‘\n5. ë‹¤ë‘¥ì´\n6. ì—†ìŒ\n");
+		printf("ì„ íƒ: ");
 		scanf("%d", &discountCondition);
 		
-			//ÁÖ¹Î¹øÈ£ 7¹øÂ° ÀÚ¸®°¡ 1ÀÌ°Å³ª 2¶ó¸é 1900³â´ë »ı, 3ÀÌ³ª 4¶ó¸é 2000³â´ë »ı
+			//ì£¼ë¯¼ë²ˆí˜¸ 7ë²ˆì§¸ ìë¦¬ê°€ 1ì´ê±°ë‚˜ 2ë¼ë©´ 1900ë…„ëŒ€ ìƒ, 3ì´ë‚˜ 4ë¼ë©´ 2000ë…„ëŒ€ ìƒ
 		if ((jumin[6] - '0') == 1 || (jumin[6] - '0') == 2) {
 			birthYear = 1900 + ((jumin[0] - '0') * 10 + (jumin[1] - '0'));
 		} else if ((jumin[6] - '0') == 3 || (jumin[6] - '0') == 4) {
 			birthYear = 2000 + ((jumin[0] - '0') * 10 + (jumin[1] - '0'));
 		}
-		//»ı¿ù = ÁÖ¹Î¹øÈ£ 3,4¹øÂ° ÀÚ¸®
+		//ìƒì›” = ì£¼ë¯¼ë²ˆí˜¸ 3,4ë²ˆì§¸ ìë¦¬
 		birthMonth = ((jumin[2] - '0') * 10) + (jumin[3] - '0');
 		birthDate = ((jumin[4] - '0') * 10) + (jumin[5] - '0');
 		
 		 
-		if ((birthYear <= YEAR_NOW && birthMonth < MONTH_NOW) || (birthYear <= YEAR_NOW && birthMonth == MONTH_NOW && birthDate < TODAY)) {
-			age = (YEAR_NOW - birthYear); //»ı³âÀÌ Áö³µ°Å³ª ¿ÃÇØ ÅÂ¾î³­ »ç¶÷ Áß »ı¿ùÀÌ Áö³­ »ç¶÷,  4¿ù»ıÀÎµ¥ »ıÀÏÀÌ Áö³­ »ç¶÷Àº ¿ÃÇØ - »ı³â = ³ªÀÌ
-		} else if ((birthYear < YEAR_NOW && birthMonth > MONTH_NOW) || (birthYear < YEAR_NOW && birthMonth == MONTH_NOW && birthDate > TODAY)) { 
-			age = (YEAR_NOW - birthYear) - 1; // »ıÀÏÀÌ ¾ÆÁ÷ ¿ÀÁö ¾ÊÀº »ç¶÷Àº "(¿ÃÇØ - »ı³â) - 1 = ³ªÀÌ" 
+		if (MONTH_NOW > birthMonth || (MONTH_NOW == birthMonth && TODAY >= birthDate)) {
+			age = YEAR_NOW - birthYear;
+		} else {
+			age = YEAR_NOW - birthYear - 1;
 		}
 		
 		if (dayOrNight == 1) {
-			if (age >= 0 && age <= 3 || (age > 64)) {
+			if (age >= 0 && age < 3 || (age > 64)) {
 				price = BABY * numberOfTicket;
-			} else if (age > 3 && age < 13) {
+			} else if (age > 2 && age < 13) {
 				price = KID_DAY * numberOfTicket;
 			} else if (age > 13 && age < 19) {
 				price = YOUNG_DAY * numberOfTicket;
@@ -102,18 +102,19 @@ int main () {
 		}
 		
 		printf("****************************************\n");
-		printf("°¡°İÀº %d¿øÀÔ´Ï´Ù. °¨»çÇÕ´Ï´Ù.\n", price);
-		printf("°è¼Ó ¹ß±ÇÇÏ½Ã°Ú½À´Ï±î?[1. ¿¹ / 2. ¾Æ´Ï¿À]\n");
-		printf("ÀÔ·Â: ");
+		printf("ê°€ê²©ì€ %dì›ì…ë‹ˆë‹¤. ê°ì‚¬í•©ë‹ˆë‹¤.\n", price);
+		printf("ê³„ì† ë°œê¶Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ?[1. ì˜ˆ / 2. ì•„ë‹ˆì˜¤]\n");
+		printf("ì„ íƒ: ");
 		scanf ("%d", &repeat);
 		printf("\n**************************************\n");
 		
 		priceFinal = priceFinal + price;
 		
 	} while (repeat == 1);
-			printf("Æ¼ÄÏ ¹ß±ÇÀ» Á¾·áÇÕ´Ï´Ù. °¨»çÇÕ´Ï´Ù.\n");
-			printf("*************Æú¸®·£µå**************\n");
-			printf("ÃÑ °áÁ¦¾×: %d", priceFinal);
+	
+		printf("í‹°ì¼“ ë°œê¶Œì„ ì¢…ë£Œí•©ë‹ˆë‹¤. ê°ì‚¬í•©ë‹ˆë‹¤.\n");
+		printf("\n*************í´ë¦¬ëœë“œ**************\n");
+		printf("ì´ ê²°ì œì•¡: %d", priceFinal);
 			
-	return 0; 
+	return 0;
 }
