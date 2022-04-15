@@ -5,6 +5,18 @@ int main () {
 	const int MONTH_NOW = 4;
 	const int TODAY = 14;
 	
+	const int AGE_GROUP_BABY = 1;
+	const int AGE_GROUP_KID = 2;
+	const int AGE_GROUP_YOUNG = 3;
+	const int AGE_GROUP_ADULT = 4;
+	const int AGE_GROUP_ELDER = 5;
+	
+	const int SAVE_TICKET_TYPE = 0;
+	const int SAVE_AGE_TYPE = 1;
+	const int SAVE_TICKET_COUNT = 2;
+	const int SAVE_PRICE_PER_PURCHASE = 3;
+	const int SAVE_DISCOUNT = 4;
+	
 	const int BABY = 15000;
 	const int KID_DAY = 46000;
 	const int KID_NIGHT = 35000;
@@ -23,11 +35,15 @@ int main () {
 	int birthMonth;
 	int birthDate;
 	int age;
+	int ageGroup;
 	int numberOfTicket = 0;
 	int discountCondition;
 	int price = 0;
 	int priceFinal = 0; 
 	int repeat;
+	int roundCount = 0;
+	int orderList [][] = {0};
+	
 
 	do {
 	
@@ -71,14 +87,26 @@ int main () {
 			age = YEAR_NOW - birthYear - 1;
 		}
 		
+		if (age >=0 && age < 3) {
+			ageGroup = AGE_GROUP_BABY;
+		} else if (age >= 3 && age < 13) {
+			ageGroup = AGE_GROUP_KID;
+		} else if (age >= 13 && age < 19 ) {
+			ageGroup = AGE_GROUP_YOUNG;
+		}else if (age >= 19 && age < 65) {
+			ageGroup = AGE_GROUP_ADULT;
+		}else if (age >= 65) {
+			ageGroup = AGR_GROUP_ELDER;
+		}
+		
 		if (dayOrNight == 1) {
 			if (age >= 0 && age < 3 || (age > 64)) {
 				price = BABY * numberOfTicket;
-			} else if (age > 2 && age < 13) {
+			} else if (age >= 3 && age < 13) {
 				price = KID_DAY * numberOfTicket;
-			} else if (age > 13 && age < 19) {
+			} else if (age >= 13 && age < 19) {
 				price = YOUNG_DAY * numberOfTicket;
-			} else if (age > 18 && age < 65) {
+			} else if (age >= 19 && age < 65) {
 				price = ADULT_DAY * numberOfTicket;
 			}
 		}
@@ -109,12 +137,24 @@ int main () {
 		printf("\n**************************************\n");
 		
 		priceFinal = priceFinal + price;
+		roundCount ++;
+		
+		orderList[roundCount][SAVE_TICKET_TYPE] = dayOrNight;
+		orderList[roundCount][SAVE_AGE_GROUP] = ageGroup;
+		orderList[roundCount][SAVE_AGE_TYPE] = dayOrNight;
+		orderList[roundCount][SAVE_TICKET_COUNT] = dayOrNight;
+		orderList[roundCount][SAVE_PRICE_PER_PURCHASE] = dayOrNight;
+		orderList[roundCount][SAVE_DISCOUNT] = dayOrNight;
+		orderList[roundCount][SAVE_TOTAL] = dayOrNight;
 		
 	} while (repeat == 1);
 	
 		printf("티켓 발권을 종료합니다. 감사합니다.\n");
 		printf("\n*************폴리랜드**************\n");
-		printf("총 결제액: %d", priceFinal);
-			
+		for (int index = 0; index < roundCount; index++) {
+			if ()
+		}
+		printf("총 결제액은 %d원입니다.", priceFinal);
+		
 	return 0;
 }
