@@ -147,45 +147,46 @@ int main () {
 		
 	} while (repeat == 1);
 	
-		printf("티켓 발권을 종료합니다. 감사합니다.\n");
-		printf("\n*************폴리랜드**************\n");
-		for (int index = 0; index < roundCount; index++) { //다시,,,
-			if (orderList[roundCount][SAVE_TICKET_TYPE] == 1) {
-				printf("주간권\t");
-			} else if (orderList[roundCount][SAVE_TICKET_TYPE] == 2) {
-				printf("야간권\t");
-			}
-			
-			if (orderList[roundCount][SAVE_AGE_GROUP] == 1) {
-				printf("베이비\t");
-			} else if (orderList[roundCount][SAVE_AGE_GROUP] == 2) {
-				printf("어린이\t");
-			} else if (orderList[roundCount][SAVE_AGE_GROUP] == 3) {
-				printf("청소년\t");
-			} else if (orderList[roundCount][SAVE_AGE_GROUP] == 4) {
-				printf("성인\t");
-			} else if (orderList[roundCount][SAVE_AGE_GROUP] == 5) {
-				printf("노인\t");
-			}
-			
-			printf ("%d 장\t", orderList[roundCount][SAVE_TICKET_COUNT]);
-			
-			if (orderList[roundCount][SAVE_DISCOUNT] == 1) {
-				printf("%d원 (장애인 할인)\n", price);
-			} else if (orderList[roundCount][SAVE_DISCOUNT] == 2) {
-				printf("%d원 (국가유공자 할인)\n", price);
-			} else if (orderList[roundCount][SAVE_DISCOUNT] == 3) {
-				printf("%d원 (임산부 할인)\n", price);
-			} else if  (orderList[roundCount][SAVE_DISCOUNT] == 4) {
-				printf("%d원 (휴가장병 할인)\n", price);
-			} else if (orderList[roundCount][SAVE_DISCOUNT] == 5) {
-				printf("%d원 (다둥이 할인)\n", price);
-			} else {
-				printf("%d원 (할인 없음)\n", price);
-			}
+	printf("티켓 발권을 종료합니다. 감사합니다.\n");
+	printf("\n*************폴리랜드**************\n");
+	
+	for (int index = 0; index < roundCount; index++) { //다시,,,
+		if (orderList[roundCount][SAVE_TICKET_TYPE] == 1) {
+			printf("주간권\t");
+		} else if (orderList[roundCount][SAVE_TICKET_TYPE] == 2) {
+			printf("야간권\t");
 		}
-		printf("==================================\n");
-		printf("총 결제액은 %d원입니다.", priceFinal);
 		
-	return 0;
+		if (orderList[roundCount][SAVE_AGE_GROUP] == 1) {
+			printf("베이비\t");
+		} else if (orderList[roundCount][SAVE_AGE_GROUP] == 2) {
+			printf("어린이\t");
+		} else if (orderList[roundCount][SAVE_AGE_GROUP] == 3) {
+			printf("청소년\t");
+		} else if (orderList[roundCount][SAVE_AGE_GROUP] == 4) {
+			printf("성인\t");
+		} else if (orderList[roundCount][SAVE_AGE_GROUP] == 5) {
+			printf("노인\t");
+		}
+		
+		printf ("%d 장\t", orderList[roundCount][SAVE_TICKET_COUNT]);
+		
+		if (orderList[roundCount][SAVE_DISCOUNT] == 1) {
+			printf("%d원 (장애인 할인)\n", price);
+		} else if (orderList[roundCount][SAVE_DISCOUNT] == 2) {
+			printf("%d원 (국가유공자 할인)\n", price);
+		} else if (orderList[roundCount][SAVE_DISCOUNT] == 3) {
+			printf("%d원 (임산부 할인)\n", price);
+		} else if  (orderList[roundCount][SAVE_DISCOUNT] == 4) {
+			printf("%d원 (휴가장병 할인)\n", price);
+		} else if (orderList[roundCount][SAVE_DISCOUNT] == 5) {
+			printf("%d원 (다둥이 할인)\n", price);
+		} else {
+			printf("%d원 (할인 없음)\n", price);
+		}
+	}
+	printf("==================================\n");
+	printf("총 결제액은 %d원입니다.", priceFinal);
+	
+return 0;
 }
