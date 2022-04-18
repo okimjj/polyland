@@ -3,7 +3,7 @@
 int main () {
 	const int YEAR_NOW = 2022;
 	const int MONTH_NOW = 4;
-	const int TODAY = 14;
+	const int TODAY = 18;
 	
 	const int AGE_GROUP_BABY = 1;
 	const int AGE_GROUP_KID = 2;
@@ -129,15 +129,8 @@ int main () {
 			price = price - (price * DC_MULTIKID);
 		}
 		
-		printf("****************************************\n");
-		printf("가격은 %d원입니다. 감사합니다.\n", price);
-		printf("계속 발권하시겠습니까?[1. 예 / 2. 아니오]\n");
-		printf("선택: ");
-		scanf ("%d", &repeat);
-		printf("\n**************************************\n");
-		
-		roundCount ++;
 		priceFinal = priceFinal + price;
+		
 		
 		orderList[roundCount][SAVE_TICKET_TYPE] = dayOrNight;
 		orderList[roundCount][SAVE_AGE_GROUP] = ageGroup;
@@ -145,45 +138,56 @@ int main () {
 		orderList[roundCount][SAVE_PRICE_PER_PURCHASE] = price;
 		orderList[roundCount][SAVE_DISCOUNT] = discountCondition;
 		
+		roundCount ++;
+		
+		printf("****************************************\n");
+		printf("가격은 %d원입니다. 감사합니다.\n", price);
+		printf("계속 발권하시겠습니까?[1. 예 / 2. 아니오]\n");
+		printf("선택: ");
+		scanf ("%d", &repeat);
+		printf("\n**************************************\n");
+		
 	} while (repeat == 1);
 	
 	printf("티켓 발권을 종료합니다. 감사합니다.\n");
-	printf("\n*************폴리랜드**************\n");
+	printf("\n=============폴리랜드==============\n");
 	
-	for (int index = 0; index < roundCount; index++) { //다시,,,
-		if (orderList[roundCount][SAVE_TICKET_TYPE] == 1) {
+	for (int index = 0; index < roundCount; index++) {
+		if (orderList[index][SAVE_TICKET_TYPE] == 1) {
 			printf("주간권\t");
-		} else if (orderList[roundCount][SAVE_TICKET_TYPE] == 2) {
+		} else if (orderList[index][SAVE_TICKET_TYPE] == 2) {
 			printf("야간권\t");
 		}
 		
-		if (orderList[roundCount][SAVE_AGE_GROUP] == 1) {
+		if (orderList[index][SAVE_AGE_GROUP] == 1) {
 			printf("베이비\t");
-		} else if (orderList[roundCount][SAVE_AGE_GROUP] == 2) {
+		} else if (orderList[index][SAVE_AGE_GROUP] == 2) {
 			printf("어린이\t");
-		} else if (orderList[roundCount][SAVE_AGE_GROUP] == 3) {
+		} else if (orderList[index][SAVE_AGE_GROUP] == 3) {
 			printf("청소년\t");
-		} else if (orderList[roundCount][SAVE_AGE_GROUP] == 4) {
+		} else if (orderList[index][SAVE_AGE_GROUP] == 4) {
 			printf("성인\t");
-		} else if (orderList[roundCount][SAVE_AGE_GROUP] == 5) {
+		} else if (orderList[index][SAVE_AGE_GROUP] == 5) {
 			printf("노인\t");
 		}
 		
-		printf ("%d 장\t", orderList[roundCount][SAVE_TICKET_COUNT]);
+		printf ("%d 장\t", orderList[index][SAVE_TICKET_COUNT]);
+		printf("%5d 원\t", orderList[index][SAVE_PRICE_PER_PURCHASE]);
 		
-		if (orderList[roundCount][SAVE_DISCOUNT] == 1) {
-			printf("%d원 (장애인 할인)\n", price);
-		} else if (orderList[roundCount][SAVE_DISCOUNT] == 2) {
-			printf("%d원 (국가유공자 할인)\n", price);
-		} else if (orderList[roundCount][SAVE_DISCOUNT] == 3) {
-			printf("%d원 (임산부 할인)\n", price);
-		} else if  (orderList[roundCount][SAVE_DISCOUNT] == 4) {
-			printf("%d원 (휴가장병 할인)\n", price);
-		} else if (orderList[roundCount][SAVE_DISCOUNT] == 5) {
-			printf("%d원 (다둥이 할인)\n", price);
+		if (orderList[index][SAVE_DISCOUNT] == 1) {
+			printf(" (장애인 할인)\n");
+		} else if (orderList[index][SAVE_DISCOUNT] == 2) {
+			printf(" (국가유공자 할인)\n");
+		} else if (orderList[index][SAVE_DISCOUNT] == 3) {
+			printf(" (임산부 할인)\n");
+		} else if (orderList[index][SAVE_DISCOUNT] == 4) {
+			printf(" (휴가장병 할인)\n");
+		} else if (orderList[index][SAVE_DISCOUNT] == 5) {
+			printf(" (다둥이 할인)\n");
 		} else {
-			printf("%d원 (할인 없음)\n", price);
+			printf(" (할인 없음)\n");
 		}
+		
 	}
 	printf("==================================\n");
 	printf("총 결제액은 %d원입니다.", priceFinal);
